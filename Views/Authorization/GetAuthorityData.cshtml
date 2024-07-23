@@ -1,0 +1,333 @@
+﻿@model (string tuple_name, string tuple_surname)
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Executive authority</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap">
+
+	<style>
+		body {
+			background: white;
+			line-height: 1.6;
+			margin: 0;
+			font-family: "Roboto", sans-serif;
+			font-size: 15px;
+			width: 100%;
+			height: 100vh;
+		}
+
+		*:before,
+		*:after {
+			box-sizing: border-box;
+		}
+
+		h1, h2, h3, h5, h6 {
+			margin: 0;
+		}
+
+		/* Container for all general pages */
+		.header_size {
+			width: 100%;
+			background-color: #0A69C2;
+		}
+
+		.container {
+			width: 100%;
+			max-width: 1200px;
+			margin: 0 auto;
+		}
+		/* Header settings */
+		.header_inner {
+			height: 86px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+			.header_inner img {
+				width: 50px;
+				height: 50px;
+				padding-right: 10px;
+			}
+
+		.logo_and_link {
+			padding-left: 10px;
+			display: flex;
+			align-items: center;
+		}
+
+		.header_inner p {
+			font-size: 19px;
+			color: #FFFFFF;
+		}
+
+		.header_inner a {
+			font-size: 19px;
+			color: #FFFFFF;
+			text-decoration: none;
+		}
+
+			.header_inner a:after {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 1px;
+				background-color: #FFFFFF;
+				margin-right: -10px;
+			}
+
+		.header_text {
+			font-size: 25px;
+			color: #FFFFFF;
+			padding-right: 40px;
+		}
+
+		/* ------ Footer settings ------*/
+		.footer_inner {
+			width: 100%;
+			background-color: #0A69C2;
+			padding-bottom: 50px;
+		}
+
+		.logo_inner {
+			width: 100%;
+			display: flex;
+			padding-top: 60px;
+		}
+
+			.logo_inner img {
+				width: 50px;
+				height: 50px;
+			}
+
+			.logo_inner p {
+				padding-top: 2px;
+				font-size: 22px;
+				color: #FFFFFF;
+			}
+
+		/* Links container */
+		.links_container {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding-bottom: 30px;
+		}
+
+		.item_keeper {
+			margin: 0;
+		}
+
+			.item_keeper p {
+				font-size: 15px;
+				margin: 0;
+				padding: 0;
+				color: #FFFFFF;
+			}
+	</style>
+
+	<style>
+		.sub_inner {
+			width: 100%;
+		}
+
+		.sub_container {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			text-align: center;
+			padding-left: 120px;
+		}
+
+			.sub_container a {
+				padding-top: 20px;
+				padding-right: 100px;
+				font-size: 17px;
+				text-decoration: none;
+			}
+
+		/* Секція з останніми новинами */
+		.section_inner {
+			width: 100%;
+			padding-top: 10px;
+		}
+
+		.container_section {
+			padding-top: 70px;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.section h1 {
+			font-size: 30px;
+			text-align: center;
+		}
+
+		.section h2 {
+			font-size: 20px;
+			font-weight: normal;
+		}
+
+		.section h1:after {
+			content: "";
+			display: block;
+			height: 4px;
+			background-color: #0A69C2;
+			margin-bottom: 10px;
+			margin-top: -5px;
+		}
+	</style>
+
+	<style>
+		.layout_section {
+			width: 100%;
+			padding-top: 110px;
+		}
+
+		.holder {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding-bottom: 20px;
+		}
+
+		/* Form keeper */
+		.holder_keeper {
+			width: 45%;
+		}
+
+			.holder_keeper h1 {
+				font-size: 23px;
+				font-weight: normal;
+				padding-bottom: 10px;
+			}
+
+		.form_container {
+			width: 100%;
+			padding-bottom: 50px;
+		}
+
+		.textbox_settings {
+			width: 100%;
+			height: 40px;
+			margin-bottom: 10px;
+			border: 1px solid #D6DBDF;
+			font-size: 24px;
+		}
+
+			.textbox_settings::placeholder {
+				padding-left: 10px;
+				font-size: 17px;
+			}
+
+		.button_submit {
+			width: 25%;
+			height: 30px;
+			background-color: #0A69C2;
+			color: #FFFFFF;
+			font-size: 17px;
+			border: none; 
+			box-shadow: none;
+		}
+	</style>
+
+</head>
+<body>
+
+<header>
+	<div class="header_size">
+		<div class="container">
+			<div class="header_inner">
+				<div class="logo_and_link">
+					<p>@Model.tuple_surname @Model.tuple_name</p>
+				</div>
+					<h1 class="header_text">Автоматизована система виконавчого провадження</h1>
+			</div>
+		</div>
+	</div>
+</header>
+
+<div class="sub_inner">
+	<div class="container">
+		<div class="sub_container">
+			<a href="#">Кабінет</a>
+			<a href="#">Діяльність АСВП</a>
+			<a href="#">Налаштування</a> 
+			<a href="#">Судові рішення</a> 
+			<a href="#">Виконавче провадження</a> 
+		</div>
+	</div>
+</div>
+
+<div class="section_inner">
+	<div class="container">
+		<div class="container_section">
+			<div class="section">
+				<h1>Виборчі новини</h1>
+				<h2>Міністерство з питань реінтеграції взяло на себе ініціативу розпочати електронні консультації з громадськістю щодо розробки та впровадження Стратегії відновлення державної влади.Ці консультації є важливим етапом у побудові шляхів зміцнення владних структур та повернення стабільності в регіоні.</h2>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="layout_section">
+	<div class="container">
+		<div class="holder">
+			<div class="holder_keeper">
+				<h1>Перевірити стан справи</h1>
+			<div class="form_container">
+					<form action="/Authorization/CaseStatus">
+						<input type="text" class="textbox_settings" name="case_id" placeholder="Код справи"><br>
+						<input type="text" class="textbox_settings" name="case_number" placeholder="Номер справи"><br>
+						<input class="button_submit" type="submit" value="Пошук">
+					</form>
+			</div>
+			</div>
+
+			<div class="holder_keeper">
+				<h1>Пошук виконавчого провадження</h1>
+			<div class="form_container">
+					<form action="#">
+						<input type="text" class="textbox_settings" name="name_customer" placeholder="Номер виконавчого провадження"><br>
+						<input class="button_submit" type="submit" value="Знайти">
+					</form>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="footer_inner">
+	<div class="container">
+		<div class="logo_inner">
+				<p>Автоматизована система виконавчого провадження</p>
+		</div>
+			<div class="links_container">
+				<div class="item_keeper">
+					<p>Для устних звернень громадян</p>
+					<p>+38 (044) 567-12-90</p>
+				</div>
+				<div class="item_keeper">
+					<p>Зі стаціонарного та мобільного</p>
+					<p>+38 (044) 009-45-00</p>
+				</div>
+				<div class="item_keeper">
+					<p>Електронною поштою</p>
+					<p>proceedacvp@ukr.net</p>
+				</div>
+
+				<div class="item_keeper">
+					<p>Для отримання звернень громадян</p>
+					<p>acvp@cvk.gov.ua</p>
+				</div>
+			</div>
+	</div>
+</div>
+</body>
+</html>

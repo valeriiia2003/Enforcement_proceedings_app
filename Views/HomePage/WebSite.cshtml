@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Executive system</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap">
+
+	<style>
+		body {
+			background: white;
+			line-height: 1.6;
+			margin: 0;
+			font-family: "Roboto", sans-serif;
+			font-size: 15px;
+			width: 100%;
+			height: 100vh;
+		}
+
+		*:before,
+		*:after {
+			box-sizing: border-box;
+		}
+
+		h1, h2, h3, h5, h6 {
+			margin: 0;
+		}
+
+		/* Container for all general pages */
+		.header_size {
+			width: 100%;
+			background-color: #0A69C2;
+		}
+
+		.container {
+			width: 100%;
+			max-width: 1200px;
+			margin: 0 auto;
+		}
+		/* Header settings */
+		.header_inner {
+			height: 86px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+			.header_inner img {
+				width: 50px;
+				height: 50px;
+				padding-right: 10px;
+			}
+
+		.logo_and_link {
+			padding-left: 10px;
+			display: flex;
+			align-items: center;
+		}
+
+		.header_inner p {
+			font-size: 19px;
+			color: #FFFFFF;
+		}
+
+		.header_inner a {
+			font-size: 19px;
+			color: #FFFFFF;
+			text-decoration: none;
+		}
+
+			.header_inner a:after {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 1px;
+				background-color: #FFFFFF;
+				margin-right: -10px;
+			}
+
+		.header_text {
+			font-size: 25px;
+			color: #FFFFFF;
+			padding-right: 40px;
+		}
+
+		/* ------ Footer settings ------*/
+		.footer_inner {
+			width: 100%;
+			background-color: #0A69C2;
+			padding-bottom: 50px;
+		}
+
+		.logo_inner {
+			width: 100%;
+			display: flex;
+			padding-top: 60px;
+		}
+
+			.logo_inner img {
+				width: 50px;
+				height: 50px;
+			}
+
+			.logo_inner p {
+				padding-top: 2px;
+				font-size: 22px;
+				color: #FFFFFF;
+			}
+
+		/* Links container */
+		.links_container {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding-bottom: 30px;
+		}
+
+		.item_keeper {
+			margin: 0;
+		}
+
+			.item_keeper p {
+				font-size: 15px;
+				margin: 0;
+				padding: 0;
+				color: #FFFFFF;
+			}
+	</style>
+
+	<style>
+		.page_layout {
+			width: 100%;
+			padding-bottom: 100px;
+		}
+
+		.sections_holder {
+			width: 100%;
+			padding-top: 150px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
+		/*Пошук за даними клієнта по його виконавчим провадженням*/
+		.client_search {
+			align-items: center;
+			text-align: left;
+			width: 600px;
+		}
+
+			.client_search h1 {
+				font-size: 22px;
+				font-weight: normal;
+			}
+
+		/* Форма для пошуку */
+		.form_container {
+			padding-top: 20px;
+		}
+
+		.textbox_settings {
+			width: 100%;
+			height: 35px;
+			max-width: 530px;
+			border: 1px solid #000000;
+			font-size: 24px;
+			margin-bottom: 10px;
+		}
+
+			.textbox_settings::placeholder {
+				padding-left: 10px;
+				font-size: 17px;
+			}
+
+		/* Пошук за виконавчим провадженням */
+		.procceding_search {
+			align-items: center;
+			text-align: right;
+			width: 600px;
+		}
+
+			.procceding_search h1 {
+				font-size: 22px;
+				font-weight: normal;
+			}
+
+		/* --- Кнопка для пошуку користувача --- */
+		.innerbutton {
+			display: flex;
+			justify-content: center; /* Выравнивание по горизонтали */
+			align-items: center;
+			width: 100%;
+			max-width: 534px;
+			padding-top: 7px;
+		}
+
+		.button_submit {
+			width: 25%;
+			height: 30px;
+			background-color: #0A69C2;
+			color: #FFFFFF;
+			font-size: 17px;
+			border: none; /* Убираем контур */
+			box-shadow: none; /* Убираем тень */
+		}
+	</style>
+
+</head>
+<body>
+	<header>
+		<div class="header_size">
+			<div class="container">
+				<div class="header_inner">
+					<div class="logo_and_link">
+						<a href="/Authorization/LoginSystem">Вхід</a>
+					</div>
+					<h1 class="header_text">Автоматизована система виконавчого провадження</h1>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="page_layout">
+		<div class="container">
+			<div class="sections_holder">
+				<div class="client_search">
+					<h1>Пошук за даними ПІБ</h1>
+					<div class="form_container">
+						<form action="/HomePage/CustomerInfo" method="post">
+							<input type="text" class="textbox_settings" name="surname" placeholder="Прізвище"><br>
+							<input type="text" class="textbox_settings" name="name" placeholder="Ім'я"><br>
+							<input type="text" class="textbox_settings" name="unique_number" placeholder="Унікальний номер"><br>
+
+							<div class="innerbutton">
+								<input class="button_submit" type="submit" value="Пошук">
+							</div>
+
+						</form>
+					</div>
+				</div>
+
+				<div class="procceding_search">
+					<h1>Пошук за номером виконавчого провадження</h1>
+					<div class="form_container">
+						<form action="/HomePage/Enforcement_Proceedings" method="post">
+							<input type="text" class="textbox_settings" name="court_number" placeholder="Номер виконавчого провадження"><br>
+							<input type="text" class="textbox_settings" name="decision_id" placeholder="Рішення суду"><br>
+							<div class="procceding_search">
+								<input class="button_submit" type="submit" value="Пошук">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer_inner">
+		<div class="container">
+			<div class="logo_inner">
+				<p>Автоматизована система виконавчого провадження</p>
+			</div>
+			<div class="links_container">
+				<div class="item_keeper">
+					<p>Для устних звернень громадян</p>
+					<p>+38 (044) 567-12-90</p>
+				</div>
+				<div class="item_keeper">
+					<p>Зі стаціонарного та мобільного</p>
+					<p>+38 (044) 009-45-00</p>
+				</div>
+				<div class="item_keeper">
+					<p>Електронною поштою</p>
+					<p>proceedacvp@ukr.net</p>
+				</div>
+
+				<div class="item_keeper">
+					<p>Для отримання звернень громадян</p>
+					<p>acvp@cvk.gov.ua</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,265 @@
+﻿@using System.Collections.Generic
+@model Enforcement_proceedings_app.Additional_Data.CombinedModel
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Executive system</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap">
+
+<style>
+		body {
+			background: white;
+			line-height: 1.6;
+			margin: 0;
+			font-family: "Roboto", sans-serif;
+			font-size: 15px;
+			width: 100%;
+			height: 100vh;
+		}
+
+		*:before,
+		*:after {
+			box-sizing: border-box;
+		}
+
+		h1, h2, h3, h5, h6 {
+			margin: 0;
+		}
+
+		/* Container for all general pages */
+		.header_size {
+			width: 100%;
+			background-color: #0A69C2;
+		}
+
+		.container {
+			width: 100%;
+			max-width: 1200px;
+			margin: 0 auto;
+		}
+		/* Header settings */
+		.header_inner {
+			height: 86px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+			.header_inner img {
+				width: 50px;
+				height: 50px;
+				padding-right: 10px;
+			}
+
+		.logo_and_link {
+			padding-left: 10px;
+			display: flex;
+			align-items: center;
+		}
+
+		.header_inner p {
+			font-size: 19px;
+			color: #FFFFFF;
+		}
+
+		.header_inner a {
+			font-size: 19px;
+			color: #FFFFFF;
+			text-decoration: none;
+		}
+
+			.header_inner a:after {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 1px;
+				background-color: #FFFFFF;
+				margin-right: -10px;
+			}
+
+		.header_text {
+			font-size: 25px;
+			color: #FFFFFF;
+			padding-right: 40px;
+		}
+
+		/* ------ Footer settings ------*/
+		.footer_inner {
+			width: 100%;
+			background-color: #0A69C2;
+			padding-bottom: 50px;
+		}
+
+		.logo_inner {
+			width: 100%;
+			display: flex;
+			padding-top: 60px;
+		}
+
+			.logo_inner img {
+				width: 50px;
+				height: 50px;
+			}
+
+			.logo_inner p {
+				padding-top: 2px;
+				font-size: 22px;
+				color: #FFFFFF;
+			}
+
+		/* Links container */
+		.links_container {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding-bottom: 30px;
+		}
+
+		.item_keeper {
+			margin: 0;
+		}
+
+			.item_keeper p {
+				font-size: 15px;
+				margin: 0;
+				padding: 0;
+				color: #FFFFFF;
+			}
+</style>
+
+<style>
+		/* Дані клієнта */
+		.description_text {
+			width: 100%;
+			padding-bottom: 5px;
+		}
+
+			.description_text p {
+				font-size: 18px;
+			}
+
+
+		.inner_settings {
+			width: 100%;
+			padding-top: 160px;
+			padding-bottom: 60px;
+		}
+
+		.section {
+			width: 100%;
+		}
+
+			.section h1 {
+				font-size: 30px;
+				padding-bottom: 8px;
+			}
+
+			.section h2 {
+				font-size: 27px;
+				font-weight: bold;
+				padding-bottom: 40px;
+			}
+
+		table {
+			width: 100%;
+			border-collapse: collapse; /* Объединяем границы ячеек */
+		}
+
+		th, td {
+			border: 1px solid black;
+			padding: 8px;
+			word-wrap: break-word; /* Добавляем перенос длинных слов */
+			max-width: 200px; /* Устанавливаем максимальную ширину для ячейки */
+		}
+
+		th {
+			background-color: #f2f2f2;
+		}
+
+</style>
+
+
+</head>
+<body>
+
+<header>
+		<div class="header_size">
+			<div class="container">
+				<div class="header_inner">
+					<div class="logo_and_link">
+                    <p>Пошук</p>
+                </div>
+					<h1 class="header_text">Автоматизована система виконавчого провадження</h1>
+				</div>
+			</div>
+		</div>
+	</header>
+
+
+<div class="inner_settings">
+	<div class="container">
+			
+			<div class="section">
+				<h1>Результати пошуку: </h1>
+				<h2>Дані клієнта: </h2>
+			
+<div class="description_text">
+	<div class="container">
+		<p>Номер: @Model.Id  - @Model.Surname @Model.Name</p>
+		<p>Місто: @Model.CityOfLiving</p>
+	</div>
+</div>
+			<table>
+				<tr>
+					<th>Номер заключення</th>
+					<th>Рішення суду</th>
+					<th>Дата заключення</th>
+					<th>Тип учасника</th>
+				</tr>
+					@foreach (var item in @Model.modelDictionary)
+					{
+						<tr>
+							<td>@Model.NumberCourt</td>
+							<td>@item.Key</td>
+							<td>@item.Value</td>
+							<td>@Model.TypeParty</td>
+						</tr>
+					}
+			</table>
+			</div>
+
+		</div>
+</div>
+
+
+<div class="footer_inner">
+	<div class="container">
+		<div class="logo_inner">
+				<p>Автоматизована система виконавчого провадження</p>
+		</div>
+			<div class="links_container">
+				<div class="item_keeper">
+					<p>Для устних звернень громадян</p>
+					<p>+38 (044) 567-12-90</p>
+				</div>
+				<div class="item_keeper">
+					<p>Зі стаціонарного та мобільного</p>
+					<p>+38 (044) 009-45-00</p>
+				</div>
+				<div class="item_keeper">
+					<p>Електронною поштою</p>
+					<p>proceedacvp@ukr.net</p>
+				</div>
+
+				<div class="item_keeper">
+					<p>Для отримання звернень громадян</p>
+					<p>acvp@cvk.gov.ua</p>
+				</div>
+			</div>
+	</div>
+</div>
+</body>
+</html>
